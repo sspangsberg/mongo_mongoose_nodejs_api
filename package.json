@@ -1,0 +1,33 @@
+{
+  "name": "men_rest_api",
+  "version": "1.0.0",
+  "description": "Mongo/Mongoose-ExpressJS-NodeJS (MEN) REST API",
+  "main": "server.js",
+  "scripts": {
+    "start-dev": "cross-env NODE_ENV=development nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mongodb",
+    "mongoose",
+    "expressjs",
+    "nodejs",
+    "rest",
+    "api"
+  ],
+  "author": "smsj",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "cross-env": "^7.0.2",
+    "dotenv-flow": "^3.2.0",
+    "express": "^4.17.1",
+    "joi": "^17.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.6.4",
+    "mongoose": "^5.11.14",
+    "swagger-ui-express": "^4.1.6",
+    "yamljs": "^0.3.0"
+  }
+}
