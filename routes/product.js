@@ -34,7 +34,6 @@ router.get("/:id", (req, res) => {
         .catch(err => { res.status(500).send({ message: err.message }); });
 });
 
-
 // Update Product
 router.put("/:id", verifyToken, (req, res) => {
 //router.put("/:id", (req, res) => {
