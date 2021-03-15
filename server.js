@@ -34,7 +34,7 @@ mongoose.connection.once('open', () => console.log('Connected succesfully to Mon
 //routes definition
 //Welcome route
 app.get("/api/welcome", (req,res) => {
-  res.status(200).send({message: "Welcome to the MEN-RESTful-API"});
+  res.status(200).send({message: "Welcome to the MEN-REST-API"});
 }); 
 
 // authentication routes to secure the API endpoints
