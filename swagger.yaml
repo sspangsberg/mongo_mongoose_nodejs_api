@@ -6,6 +6,8 @@ info:
 servers:
   - url: http://localhost:4000/api/
     description: Localhost development server 
+  - url: https://smsj-men-restapi.herokuapp.com/api/
+    description: Heroku remote server
 components:
   securitySchemes:
     ApiKeyAuth:        # arbitrary name for the security scheme
