@@ -3,8 +3,8 @@ const product = require("../models/product");
 const { verifyToken } = require("../validation");
 
 // Create new product
-//router.post("/", verifyToken, (req, res) => {
-router.post("/", (req, res) => {
+router.post("/", verifyToken, (req, res) => {
+//router.post("/", (req, res) => {
     const data = req.body;
     product.insertMany(data)
         .then(data => { res.status(201).send(data); })
@@ -57,7 +57,7 @@ router.put("/:id", verifyToken, (req, res) => {
 router.delete("/:id", verifyToken, (req, res) => {
     const id = req.params.id;
 
-    product.findByIdAndRemove(id)
+    product.findByIdAndRemove(id,{useFindAndModify: false})
         .then(data => {
             if (!data) {
                 res.status(404).send({
