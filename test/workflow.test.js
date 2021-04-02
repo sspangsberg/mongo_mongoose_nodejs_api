@@ -170,8 +170,8 @@ describe('User workflow tests', () => {
             .end((err, res) => {
                                 
                 // Asserts
-                //expect(res.status).to.be.equal(400); //normal expect with no custom output message
-                expect(res.status,"Status is not 400 (NOT FOUND)").to.be.equal(400); //custom output message at fail
+                expect(res.status).to.be.equal(400); //normal expect with no custom output message
+                //expect(res.status,"Status is not 400 (NOT FOUND)").to.be.equal(400); //custom output message at fail
                 
                 expect(res.body).to.be.a('object');
                 expect(res.body.error).to.be.equal("\"password\" length must be at least 6 characters long");  
