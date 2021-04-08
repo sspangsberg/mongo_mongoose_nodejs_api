@@ -1,6 +1,7 @@
 {
     "diff": true,
     "extension": ["js"],
+    "ignore": ["test/ignore/**"],
     "package": "./package.json",
     "reporter": "spec",
     "slow": 75,
