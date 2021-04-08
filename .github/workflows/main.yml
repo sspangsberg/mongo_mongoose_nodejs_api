@@ -7,7 +7,6 @@ on:
 jobs:
   
   test:
-
     name: Test
     runs-on: ubuntu-latest
 
@@ -34,3 +33,22 @@ jobs:
           DBHOST: ${{ secrets.DBHOST }}  
           TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}  
           JWT_EXPIRES_IN: ${{ secrets.JWT_EXPIRES_IN }}  
+
+
+  deploy:
+    name: Deploy
+    needs: [test]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      
+      - name: Add remote origin to Heroku
+        run: git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
+      
+      - name: Deploy code to heroku
+        run: git push heroku main
+
