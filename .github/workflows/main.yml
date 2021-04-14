@@ -6,14 +6,10 @@ on:
 
 jobs:
   
-  test:
+  test_node_12:
     name: Test
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x, 14.x]
-
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -23,7 +19,33 @@ jobs:
       - name: Use Node.JS ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '12.x'
+      
+      - name: NPM install, build and test
+        run: |
+          npm install
+          npm test
+        env:
+          DBHOST: ${{ secrets.DBHOST }}  
+          TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}  
+          JWT_EXPIRES_IN: ${{ secrets.JWT_EXPIRES_IN }}  
+
+
+
+  test_node_14:
+    name: Test
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.JS ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
       
       - name: NPM install, build and test
         run: |
@@ -37,7 +59,7 @@ jobs:
 
   deploy:
     name: Deploy
-    needs: [test]
+    needs: [test_node_12, test_node_14]
     runs-on: ubuntu-latest
 
     steps:
