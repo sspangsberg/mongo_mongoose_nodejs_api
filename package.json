@@ -22,7 +22,7 @@
   "author": "smsj",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.0.0",
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
     "cross-env": "^7.0.2",
     "dotenv-flow": "^3.2.0",
