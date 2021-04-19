@@ -33,7 +33,7 @@ describe('User workflow tests', () => {
                     })
                     .end((err, res) => {
                         // Asserts                        
-                        expect(res.status).to.be.equal(200);   
+                        expect(res.status).to.be.equal(400);   //modify
                         expect(res.body.error).to.be.equal(null);                        
                         let token = res.body.data.token;
 
