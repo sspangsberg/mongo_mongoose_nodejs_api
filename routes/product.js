@@ -22,7 +22,7 @@ router.get("/", (req, res) => {
 });
 
 // Retrieve Products based on stock
-router.get("/instock", (req, res) => {
+router.get("/instock", verifyToken, (req, res) => {
     product.find({ inStock: true })
         .then(data => { res.send(data); })
         .catch(err => { res.status(500).send({ message: err }); })
