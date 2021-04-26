@@ -20,7 +20,7 @@ describe('User workflow tests', () => {
             .end((err, res) => {
                 
                 // Asserts
-                expect(res.status).to.be.equal(400);   
+                expect(res.status).to.be.equal(200);   
                 expect(res.body).to.be.a('object');
                 expect(res.body.error).to.be.equal(null);
                
